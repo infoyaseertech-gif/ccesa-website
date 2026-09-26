@@ -6,17 +6,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const primaryLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
+  { href: "/about", label: "About" },
   { href: "/programmes", label: "Programmes" },
   { href: "/events", label: "Events" },
   { href: "/news", label: "News" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const moreLinks = [
   { href: "/gallery", label: "Gallery" },
   { href: "/resources", label: "Resources" },
-  { href: "/contact", label: "Contact Us" },
 ];
 
 export default function Navbar() {
@@ -81,7 +80,7 @@ export default function Navbar() {
                 More
               </button>
               {moreOpen && (
-                <div className="absolute right-0 top-full w-48 border border-hairline bg-white shadow-lg">
+                <div className="absolute right-0 top-full w-44 rounded-md border border-hairline bg-white shadow-lg">
                   {moreLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -97,23 +96,23 @@ export default function Navbar() {
 
             <Link
               href="/initiative"
-              className="ml-3 flex items-center gap-1.5 border border-gold bg-navy px-3.5 py-2 text-sm font-semibold text-gold transition-colors hover:bg-navy-dark"
+              className="ml-3 flex items-center gap-1.5 rounded-md border border-gold bg-navy px-3.5 py-2 text-sm font-semibold text-gold transition-colors hover:bg-navy-dark"
             >
-              1 Million Voters Initiative
+              One Million Voters Initiative
             </Link>
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Link href="/membership" className="btn-secondary !px-4 !py-2 text-sm">
-              Become a Member
-            </Link>
-            <Link href="/donate" className="btn-primary !px-4 !py-2 text-sm">
+            <Link href="/donate" className="text-sm font-medium text-ink/70 hover:text-forest-dark">
               Donate
+            </Link>
+            <Link href="/membership" className="btn-gold !px-4 !py-2 text-sm">
+              Become a Member
             </Link>
           </div>
 
           <button
-            className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 lg:hidden"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -131,7 +130,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block py-3 text-sm font-medium text-ink/80"
+                  className="block min-h-[44px] py-3 text-sm font-medium leading-[1.75rem] text-ink/80"
                 >
                   {link.label}
                 </Link>
@@ -141,16 +140,16 @@ export default function Navbar() {
           <Link
             href="/initiative"
             onClick={() => setOpen(false)}
-            className="mt-3 block bg-navy px-3 py-2.5 text-center text-sm font-semibold text-gold"
+            className="mt-3 block rounded-md bg-navy px-3 py-3 text-center text-sm font-semibold text-gold"
           >
-            1 Million Voters Initiative
+            One Million Voters Initiative
           </Link>
           <div className="mt-3 flex gap-2">
-            <Link href="/membership" onClick={() => setOpen(false)} className="btn-secondary flex-1 !px-4 !py-2 text-sm">
-              Become a Member
-            </Link>
-            <Link href="/donate" onClick={() => setOpen(false)} className="btn-primary flex-1 !px-4 !py-2 text-sm">
+            <Link href="/donate" onClick={() => setOpen(false)} className="btn-secondary flex-1 !px-4 !py-2 text-sm">
               Donate
+            </Link>
+            <Link href="/membership" onClick={() => setOpen(false)} className="btn-gold flex-1 !px-4 !py-2 text-sm">
+              Become a Member
             </Link>
           </div>
         </nav>

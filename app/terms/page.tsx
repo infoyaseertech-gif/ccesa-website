@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <section className="section max-w-[75ch]">
-      <p className="eyebrow">Legal</p>
+      <p className="eyebrow-dark">Legal</p>
       <h1 className="h1 mt-4">Terms of Use</h1>
       <p className="mt-3 text-sm text-ink/55">Last updated: September 2026</p>
 

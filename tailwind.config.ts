@@ -8,9 +8,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#171E19",
-        canvas: "#F8F6F0",
-        hairline: "#DCD5C2",
+        ink: "#1B1B18",
+        canvas: "#F7F4EC",
+        hairline: "#E1DACB",
         forest: {
           DEFAULT: "#1A5E3A",
           dark: "#0F3D26",

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --font-heading: "Source Serif 4", Georgia, serif;
-  --font-body: "Inter", sans-serif;
+  --font-heading: "Newsreader", Georgia, serif;
+  --font-body: "Manrope", sans-serif;
 }
 
 html {
@@ -12,8 +12,8 @@ html {
 }
 
 body {
-  background-color: #F8F6F0;
-  color: #171E19;
+  background-color: #F7F4EC;
+  color: #1B1B18;
 }
 
 ::selection {
@@ -21,16 +21,12 @@ body {
   color: #14213D;
 }
 
-a,
-button {
-  outline-offset: 3px;
-}
-
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
   outline: 2px solid #C9A227;
+  outline-offset: 3px;
 }
 
 @layer components {
@@ -41,6 +37,16 @@ textarea:focus-visible {
 
   .section-tight {
     @apply mx-auto max-w-content px-6 py-10 md:px-10 md:py-14;
+  }
+
+  /* Angled section edges — vw-based so the angle scales with viewport width
+     instead of leaving a fixed-pixel gap at narrow screens. */
+  .edge-top-angle {
+    clip-path: polygon(0 3.2vw, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .edge-bottom-angle {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3.2vw), 0 100%);
   }
 
   /* Typography */
@@ -61,57 +67,49 @@ textarea:focus-visible {
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2.5 text-sm font-medium text-forest-dark;
+    @apply inline-flex items-center gap-2.5 text-sm font-semibold uppercase tracking-[0.12em] text-gold;
   }
 
-  .eyebrow::before {
-    content: "";
-    display: inline-block;
-    width: 22px;
-    height: 2px;
-    background-color: #C9A227;
+  .eyebrow-dark {
+    @apply inline-flex items-center gap-2.5 text-sm font-semibold uppercase tracking-[0.12em] text-forest-dark;
   }
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center border border-forest bg-forest px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-forest-dark hover:border-forest-dark;
+    @apply inline-flex min-h-[44px] items-center justify-center rounded-md border border-forest bg-forest px-6 py-3 text-sm font-medium text-white transition-colors hover:border-forest-dark hover:bg-forest-dark;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center border border-navy px-6 py-3 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-white;
+    @apply inline-flex min-h-[44px] items-center justify-center rounded-md border border-navy px-6 py-3 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-white;
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center border border-gold bg-gold px-6 py-3 text-sm font-medium text-navy transition-colors hover:bg-gold-dark hover:border-gold-dark hover:text-white;
+    @apply inline-flex min-h-[44px] items-center justify-center rounded-md border border-gold bg-gold px-6 py-3 text-sm font-medium text-navy transition-colors hover:border-gold-dark hover:bg-gold-dark hover:text-white;
   }
 
   .btn-ghost-light {
-    @apply inline-flex items-center justify-center border border-white/40 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10;
+    @apply inline-flex min-h-[44px] items-center justify-center rounded-md border border-white/50 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10;
   }
 
   /* Surfaces */
-  .panel-border {
-    @apply border-t border-hairline;
-  }
-
   .card {
-    @apply border border-hairline bg-white p-6;
+    @apply rounded-md border border-hairline bg-white p-6;
   }
 
   .card-accent {
-    @apply border border-hairline border-l-[3px] border-l-forest bg-white p-6;
+    @apply rounded-md border border-hairline border-l-4 border-l-forest bg-white p-6;
   }
 
   .badge-nonpartisan {
-    @apply inline-flex items-center gap-2 border border-forest/25 bg-forest-light px-3 py-1.5 text-sm font-medium text-forest-dark;
+    @apply inline-flex items-center gap-2 rounded-md border border-forest/25 bg-forest-light px-3 py-1.5 text-sm font-medium text-forest-dark;
   }
 
   .initiative-panel {
-    @apply border border-gold/30 bg-navy text-white;
+    @apply rounded-md border border-gold/30 bg-navy text-white;
   }
 
   .initiative-tag {
-    @apply inline-flex items-center gap-2 bg-gold px-3 py-1 text-sm font-semibold text-navy;
+    @apply inline-flex items-center gap-2 rounded-md bg-gold px-3 py-1 text-sm font-semibold text-navy;
   }
 
   .link-underline {
@@ -120,5 +118,32 @@ textarea:focus-visible {
 
   .pull-quote {
     @apply border-l-[3px] border-gold py-1 pl-6 font-heading text-xl leading-snug text-navy md:text-[1.4rem];
+  }
+
+  /* Duotone icon badge: navy rotated square + gold icon */
+  .icon-badge {
+    @apply relative inline-flex h-14 w-14 shrink-0 items-center justify-center;
+  }
+
+  .icon-badge::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    background-color: #14213D;
+    transform: rotate(8deg);
+  }
+
+  .icon-badge-light::before {
+    background-color: #EAF0E7;
+    border: 1px solid rgba(26, 94, 58, 0.25);
+  }
+
+  .icon-badge-gold::before {
+    background-color: #C9A227;
+  }
+
+  .stat-card {
+    @apply rounded-md border border-hairline bg-white px-6 py-7 text-center shadow-[0_1px_2px_rgba(20,33,61,0.06)];
   }
 }

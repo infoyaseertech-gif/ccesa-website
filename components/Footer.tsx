@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 const quickLinks = [
   { href: "/about", label: "About Us" },
   { href: "/programmes", label: "Our Programmes" },
-  { href: "/initiative", label: "1 Million Voters Initiative" },
+  { href: "/initiative", label: "One Million Voters Initiative" },
   { href: "/events", label: "Events" },
   { href: "/news", label: "News & Updates" },
   { href: "/resources", label: "Documents & Resources" },
@@ -15,7 +16,12 @@ const legalLinks = [
   { href: "/terms", label: "Terms of Use" },
 ];
 
-const socials = ["Facebook", "X (Twitter)", "Instagram", "YouTube"];
+const socials = [
+  { icon: Facebook, label: "Facebook" },
+  { icon: Twitter, label: "X (Twitter)" },
+  { icon: Instagram, label: "Instagram" },
+  { icon: Youtube, label: "YouTube" },
+];
 
 export default function Footer() {
   return (
@@ -35,8 +41,9 @@ export default function Footer() {
             </span>
           </div>
           <p className="mt-4 max-w-[32ch] text-sm leading-relaxed text-white/55">
-            A non-profit, non-partisan, non-religious civic organisation
-            promoting informed and active citizenship across Nigeria.
+            Empowering Citizens, Transforming Society — a non-profit,
+            non-partisan, non-religious civic organisation promoting informed
+            and active citizenship across Nigeria.
           </p>
         </div>
 
@@ -67,10 +74,11 @@ export default function Footer() {
           <div className="mt-5 flex flex-wrap gap-2">
             {socials.map((s) => (
               <span
-                key={s}
-                className="border border-white/20 px-2.5 py-1 text-xs text-white/55"
+                key={s.label}
+                aria-label={s.label}
+                className="flex h-9 w-9 items-center justify-center rounded-md border border-white/20 text-white/60 transition-colors hover:border-gold hover:text-gold"
               >
-                {s}
+                <s.icon className="h-4 w-4" strokeWidth={1.75} />
               </span>
             ))}
           </div>
