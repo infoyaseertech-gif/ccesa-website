@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Our Programmes | CCESA",
@@ -44,44 +45,39 @@ const programmes = [
 export default function ProgrammesPage() {
   return (
     <>
-      <section className="border-b border-forest/10 bg-forest-light/60">
-        <div className="section-tight">
-          <h1 className="h1">Our Programmes</h1>
-          <p className="lede mt-4">
-            CCESA runs eight interconnected programme areas designed to build
-            civic knowledge, encourage participation, and support peaceful,
-            accountable governance.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="What we do"
+        title="Our Programmes"
+        description="CCESA runs eight interconnected programme areas designed to build civic knowledge, encourage participation, and support peaceful, accountable governance."
+      />
 
       <section className="section">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
           {programmes.map((p) => (
-            <div key={p.title} className="card">
+            <div key={p.title} className="bg-white p-6">
               <h3 className="h3 !text-lg">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink/70">{p.body}</p>
+              <p className="mt-3 text-sm leading-relaxed text-ink/65">{p.body}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="initiative-panel">
-        <div className="section flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-5">
+        <div className="section flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-6">
             <Image
               src="/one-million-voters-logo.jpeg"
               alt="One Million Voters Initiative logo"
-              width={72}
-              height={72}
-              className="shrink-0"
+              width={76}
+              height={76}
+              className="hidden shrink-0 sm:block"
             />
             <div>
               <span className="initiative-tag">Featured project</span>
-              <h2 className="mt-3 font-heading text-2xl font-semibold text-white">
+              <h2 className="mt-4 font-heading text-2xl font-semibold text-white">
                 One Million Voters Initiative
               </h2>
-              <p className="mt-2 max-w-[55ch] text-sm leading-relaxed text-white/70">
+              <p className="mt-2 max-w-[55ch] text-sm leading-relaxed text-white/65">
                 A large-scale voter education and civic participation drive
                 ahead of the 2027 Bauchi State elections, delivered under
                 CCESA&rsquo;s civic and voter education programme.

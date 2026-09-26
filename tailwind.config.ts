@@ -8,28 +8,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#16221C",
-        canvas: "#F7F5EF",
+        ink: "#171E19",
+        canvas: "#F8F6F0",
+        hairline: "#DCD5C2",
         forest: {
           DEFAULT: "#1A5E3A",
-          dark: "#123F27",
-          light: "#DCEBE1",
+          dark: "#0F3D26",
+          light: "#EAF0E7",
         },
         gold: {
           DEFAULT: "#C9A227",
-          light: "#F1E4B8",
+          dark: "#8A6A16",
+          light: "#F5ECD2",
         },
         navy: {
           DEFAULT: "#14213D",
-          light: "#DDE1EA",
+          dark: "#0D1629",
+          light: "#E6E9F1",
         },
       },
       fontFamily: {
-        heading: ["var(--font-heading)", "sans-serif"],
+        heading: ["var(--font-heading)", "Georgia", "serif"],
         body: ["var(--font-body)", "sans-serif"],
       },
       maxWidth: {
         content: "1180px",
+      },
+      letterSpacing: {
+        tightest: "-0.03em",
       },
     },
   },

@@ -10,7 +10,7 @@ export default function DonatePage() {
       <div className="text-center">
         <span className="badge-nonpartisan">Support our work</span>
         <h1 className="h1 mt-5">Donate to CCESA</h1>
-        <p className="lede mx-auto mt-4">
+        <p className="lede mx-auto mt-4 text-center">
           Online donation processing is coming in a later phase. Until then,
           you can support CCESA&rsquo;s civic education and community
           development work directly by bank transfer.

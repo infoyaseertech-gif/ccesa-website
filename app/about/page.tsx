@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "About Us | CCESA",
@@ -34,22 +35,16 @@ const leaders = [
 export default function AboutPage() {
   return (
     <>
-      <section className="border-b border-forest/10 bg-forest-light/60">
-        <div className="section-tight">
-          <h1 className="h1">About CCESA</h1>
-          <p className="lede mt-4">
-            The Centre for Civic Excellence and Social Advancement is a
-            non-profit, non-partisan, non-religious, non-governmental
-            organisation working to strengthen civic life across Northern
-            Nigeria.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="About CCESA"
+        title="Building civic life across Northern Nigeria"
+        description="The Centre for Civic Excellence and Social Advancement is a non-profit, non-partisan, non-religious, non-governmental organisation working to strengthen civic participation and governance."
+      />
 
-      <section className="section grid gap-10 md:grid-cols-2">
+      <section className="section grid gap-14 md:grid-cols-2">
         <div>
           <h2 className="h3">Our background</h2>
-          <p className="mt-4 text-sm leading-relaxed text-ink/75">
+          <p className="mt-4 text-sm leading-relaxed text-ink/70">
             CCESA was established to respond to a simple but persistent gap:
             many citizens want to participate in governance and community life
             but lack access to clear civic information and safe spaces to
@@ -59,24 +54,24 @@ export default function AboutPage() {
             democratic participation, and back community-led development
             projects.
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-ink/75">
+          <p className="mt-4 text-sm leading-relaxed text-ink/70">
             Our work is grounded in the belief that an informed citizenry is
             the foundation of good governance, and that lasting change comes
             from sustained engagement rather than one-off interventions.
           </p>
         </div>
-        <div className="space-y-5">
-          <div className="card">
-            <h3 className="h3 !text-lg">Mission</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink/75">
+        <div className="space-y-8">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wide text-forest-dark/80">Mission</p>
+            <p className="pull-quote mt-3">
               To promote informed and active citizenship through civic
               education, community engagement, good governance initiatives,
               peacebuilding, and social development.
             </p>
           </div>
-          <div className="card">
-            <h3 className="h3 !text-lg">Vision</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink/75">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wide text-forest-dark/80">Vision</p>
+            <p className="pull-quote mt-3">
               To build an informed, responsible, peaceful, and actively
               engaged citizenry that contributes positively to democratic and
               community development.
@@ -85,14 +80,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-forest/10 bg-white">
+      <section className="border-t border-hairline bg-white">
         <div className="section">
           <h2 className="h2">Core values</h2>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
               <div key={v.title} className="card">
                 <h3 className="font-heading text-base font-semibold text-forest-dark">{v.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/70">{v.body}</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink/65">{v.body}</p>
               </div>
             ))}
           </div>
@@ -101,33 +96,33 @@ export default function AboutPage() {
 
       <section className="section">
         <h2 className="h2">Aims and objectives</h2>
-        <ol className="mt-8 grid gap-3 sm:grid-cols-2">
-          {objectives.map((o, i) => (
-            <li key={o} className="flex gap-3 border border-forest/10 bg-white p-4">
-              <span className="font-heading text-forest">{i + 1}.</span>
-              <span className="text-sm leading-relaxed text-ink/75">{o}</span>
-            </li>
+        <div className="mt-10 grid gap-x-10 gap-y-1 sm:grid-cols-2">
+          {objectives.map((o) => (
+            <div key={o} className="flex gap-3 border-b border-hairline py-4">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
+              <span className="text-sm leading-relaxed text-ink/70">{o}</span>
+            </div>
           ))}
-        </ol>
+        </div>
       </section>
 
-      <section className="border-t border-forest/10 bg-white">
+      <section className="border-t border-hairline bg-white">
         <div className="section">
           <h2 className="h2">Organisational leadership</h2>
-          <p className="mt-3 max-w-[65ch] text-sm text-ink/70">
+          <p className="mt-3 max-w-[65ch] text-sm text-ink/65">
             CCESA is guided by a leadership team responsible for programme
             direction, community relationships, and organisational
             accountability.
           </p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
             {leaders.map((l, i) => (
-              <div key={i} className="card text-center">
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-forest-light font-heading text-xl font-semibold text-forest-dark">
+              <div key={i} className="bg-white p-6 text-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center border border-forest/25 font-heading text-lg font-semibold text-forest-dark">
                   {l.name.split(" ").map((n) => n[0]).join("")}
                 </div>
                 <h3 className="mt-4 font-heading text-base font-semibold text-navy">{l.name}</h3>
-                <p className="text-sm font-medium text-forest">{l.title}</p>
-                <p className="mt-2 text-sm text-ink/65">{l.bio}</p>
+                <p className="text-sm font-medium text-forest-dark">{l.title}</p>
+                <p className="mt-2 text-sm text-ink/60">{l.bio}</p>
               </div>
             ))}
           </div>

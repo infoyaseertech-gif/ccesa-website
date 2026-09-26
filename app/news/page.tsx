@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "News & Updates | CCESA",
@@ -16,25 +17,22 @@ const news = [
 export default function NewsPage() {
   return (
     <>
-      <section className="border-b border-forest/10 bg-forest-light/60">
-        <div className="section-tight">
-          <h1 className="h1">News & Updates</h1>
-          <p className="lede mt-4">
-            Announcements, programme updates, and press releases from CCESA.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Newsroom"
+        title="News & Updates"
+        description="Announcements, programme updates, and press releases from CCESA."
+      />
 
       <section className="section">
-        <div className="divide-y divide-forest/10 border-y border-forest/10">
+        <div className="divide-y divide-hairline border-y border-hairline">
           {news.map((n) => (
-            <article key={n.title} className="flex flex-col gap-2 py-6 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
+            <article key={n.title} className="flex flex-col gap-3 py-7 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
               <div className="sm:max-w-[65%]">
-                <p className="text-xs font-medium uppercase tracking-wide text-forest">{n.date}</p>
-                <h2 className="mt-1 font-heading text-lg font-semibold text-navy">{n.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-ink/70">{n.excerpt}</p>
+                <p className="text-xs font-medium uppercase tracking-wide text-forest-dark/80">{n.date}</p>
+                <h2 className="mt-1.5 font-heading text-lg font-semibold text-navy">{n.title}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-ink/65">{n.excerpt}</p>
               </div>
-              <a href="#" className="mt-2 whitespace-nowrap text-sm font-medium text-forest hover:underline sm:mt-1">
+              <a href="#" className="link-underline mt-1 whitespace-nowrap text-sm font-medium">
                 Read more &rarr;
               </a>
             </article>

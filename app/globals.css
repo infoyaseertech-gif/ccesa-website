@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-heading: "Poppins", sans-serif;
+  --font-heading: "Source Serif 4", Georgia, serif;
   --font-body: "Inter", sans-serif;
 }
 
@@ -12,11 +12,29 @@ html {
 }
 
 body {
-  background-color: #F7F5EF;
-  color: #16221C;
+  background-color: #F8F6F0;
+  color: #171E19;
+}
+
+::selection {
+  background-color: #C9A227;
+  color: #14213D;
+}
+
+a,
+button {
+  outline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #C9A227;
 }
 
 @layer components {
+  /* Layout */
   .section {
     @apply mx-auto max-w-content px-6 py-16 md:px-10 md:py-24;
   }
@@ -25,47 +43,82 @@ body {
     @apply mx-auto max-w-content px-6 py-10 md:px-10 md:py-14;
   }
 
+  /* Typography */
   .h1 {
-    @apply font-heading text-4xl leading-tight tracking-tight text-navy md:text-5xl;
+    @apply font-heading text-[2.5rem] font-semibold leading-[1.08] tracking-tightest text-navy md:text-[3.25rem];
   }
 
   .h2 {
-    @apply font-heading text-3xl leading-tight tracking-tight text-navy md:text-4xl;
+    @apply font-heading text-3xl font-semibold leading-tight tracking-tightest text-navy md:text-[2.25rem];
   }
 
   .h3 {
-    @apply font-heading text-xl leading-snug text-navy md:text-2xl;
+    @apply font-heading text-xl font-semibold leading-snug text-navy md:text-2xl;
   }
 
   .lede {
-    @apply max-w-[62ch] text-lg leading-relaxed text-ink/80;
+    @apply max-w-[58ch] text-lg leading-relaxed text-ink/75;
   }
 
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 text-sm font-medium text-forest-dark;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    background-color: #C9A227;
+  }
+
+  /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-sm bg-forest px-6 py-3 font-medium text-white transition-colors hover:bg-forest-dark;
+    @apply inline-flex items-center justify-center border border-forest bg-forest px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-forest-dark hover:border-forest-dark;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-sm border border-navy px-6 py-3 font-medium text-navy transition-colors hover:bg-navy hover:text-white;
+    @apply inline-flex items-center justify-center border border-navy px-6 py-3 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-white;
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center rounded-sm bg-gold px-6 py-3 font-medium text-navy transition-colors hover:bg-gold-light;
+    @apply inline-flex items-center justify-center border border-gold bg-gold px-6 py-3 text-sm font-medium text-navy transition-colors hover:bg-gold-dark hover:border-gold-dark hover:text-white;
+  }
+
+  .btn-ghost-light {
+    @apply inline-flex items-center justify-center border border-white/40 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10;
+  }
+
+  /* Surfaces */
+  .panel-border {
+    @apply border-t border-hairline;
   }
 
   .card {
-    @apply border border-forest/10 bg-white p-6 shadow-sm;
+    @apply border border-hairline bg-white p-6;
+  }
+
+  .card-accent {
+    @apply border border-hairline border-l-[3px] border-l-forest bg-white p-6;
   }
 
   .badge-nonpartisan {
-    @apply inline-flex items-center gap-2 border border-forest/30 bg-forest-light px-3 py-1 text-sm font-medium text-forest-dark;
+    @apply inline-flex items-center gap-2 border border-forest/25 bg-forest-light px-3 py-1.5 text-sm font-medium text-forest-dark;
   }
 
   .initiative-panel {
-    @apply border border-gold/40 bg-navy text-white;
+    @apply border border-gold/30 bg-navy text-white;
   }
 
   .initiative-tag {
     @apply inline-flex items-center gap-2 bg-gold px-3 py-1 text-sm font-semibold text-navy;
+  }
+
+  .link-underline {
+    @apply text-forest-dark underline decoration-forest/40 decoration-1 underline-offset-4 transition-colors hover:decoration-forest-dark;
+  }
+
+  .pull-quote {
+    @apply border-l-[3px] border-gold py-1 pl-6 font-heading text-xl leading-snug text-navy md:text-[1.4rem];
   }
 }

@@ -7,10 +7,11 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <section className="section max-w-[75ch]">
-      <h1 className="h1">Terms of Use</h1>
-      <p className="mt-3 text-sm text-ink/60">Last updated: September 2026</p>
+      <p className="eyebrow">Legal</p>
+      <h1 className="h1 mt-4">Terms of Use</h1>
+      <p className="mt-3 text-sm text-ink/55">Last updated: September 2026</p>
 
-      <div className="prose mt-10 space-y-6 text-sm leading-relaxed text-ink/80">
+      <div className="prose mt-10 space-y-6 border-t border-hairline pt-10 text-sm leading-relaxed text-ink/75">
         <p>
           These Terms of Use govern access to and use of the Centre for Civic
           Excellence and Social Advancement (CCESA) website. By using this

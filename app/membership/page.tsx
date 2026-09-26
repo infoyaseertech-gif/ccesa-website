@@ -9,7 +9,7 @@ export default function MembershipPage() {
     <section className="section max-w-2xl text-center">
       <span className="badge-nonpartisan">Coming soon</span>
       <h1 className="h1 mt-5">Become a Member</h1>
-      <p className="lede mx-auto mt-4">
+      <p className="lede mx-auto mt-4 text-center">
         Online membership registration is being built and will be available
         in a later phase of this website. In the meantime, reach out to us
         directly to join CCESA.

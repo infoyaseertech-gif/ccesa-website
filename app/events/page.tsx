@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Events | CCESA",
@@ -22,43 +23,39 @@ const past = [
 export default function EventsPage() {
   return (
     <>
-      <section className="border-b border-forest/10 bg-forest-light/60">
-        <div className="section-tight">
-          <h1 className="h1">Events</h1>
-          <p className="lede mt-4">
-            Community forums, training sessions, and outreach activities run
-            by CCESA and its programme partners.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Calendar"
+        title="Events"
+        description="Community forums, training sessions, and outreach activities run by CCESA and its programme partners."
+      />
 
       <section className="section">
-        <h2 className="h2">Upcoming events</h2>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 className="h2 border-b border-hairline pb-6">Upcoming events</h2>
+        <div className="mt-10 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
           {upcoming.map((e) => (
-            <div key={e.title} className="card flex flex-col">
-              <p className="text-xs font-medium uppercase tracking-wide text-forest">{e.date}</p>
+            <div key={e.title} className="flex flex-col bg-white p-6">
+              <p className="text-xs font-medium uppercase tracking-wide text-forest-dark/80">{e.date}</p>
               <h3 className="h3 !text-lg mt-2">{e.title}</h3>
-              <p className="mt-1 text-sm font-medium text-ink/60">{e.location}</p>
-              <p className="mt-3 text-sm leading-relaxed text-ink/70">{e.body}</p>
+              <p className="mt-1 text-sm font-medium text-ink/55">{e.location}</p>
+              <p className="mt-3 text-sm leading-relaxed text-ink/65">{e.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="border-t border-forest/10 bg-white">
+      <section className="border-t border-hairline bg-white">
         <div className="section">
-          <h2 className="h2">Past events</h2>
-          <div className="mt-8 space-y-4">
+          <h2 className="h2 border-b border-hairline pb-6">Past events</h2>
+          <div className="mt-8 divide-y divide-hairline">
             {past.map((e) => (
-              <div key={e.title} className="flex flex-col gap-4 border border-forest/10 p-5 sm:flex-row sm:items-center">
-                <div className="flex h-24 w-full shrink-0 items-center justify-center bg-forest-light text-sm font-medium text-forest-dark sm:w-36">
+              <div key={e.title} className="flex flex-col gap-5 py-6 sm:flex-row sm:items-center">
+                <div className="flex h-24 w-full shrink-0 items-center justify-center border border-hairline text-sm text-ink/40 sm:w-36">
                   Photo placeholder
                 </div>
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wide text-forest">{e.date}</p>
+                  <p className="text-xs font-medium uppercase tracking-wide text-forest-dark/80">{e.date}</p>
                   <h3 className="font-heading text-base font-semibold text-navy">{e.title}</h3>
-                  <p className="mt-1 text-sm text-ink/70">{e.report}</p>
+                  <p className="mt-1 text-sm text-ink/65">{e.report}</p>
                 </div>
               </div>
             ))}

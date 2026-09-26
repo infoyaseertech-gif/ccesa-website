@@ -7,10 +7,11 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <section className="section max-w-[75ch]">
-      <h1 className="h1">Privacy Policy</h1>
-      <p className="mt-3 text-sm text-ink/60">Last updated: September 2026</p>
+      <p className="eyebrow">Legal</p>
+      <h1 className="h1 mt-4">Privacy Policy</h1>
+      <p className="mt-3 text-sm text-ink/55">Last updated: September 2026</p>
 
-      <div className="prose mt-10 space-y-6 text-sm leading-relaxed text-ink/80">
+      <div className="prose mt-10 space-y-6 border-t border-hairline pt-10 text-sm leading-relaxed text-ink/75">
         <p>
           The Centre for Civic Excellence and Social Advancement (CCESA)
           respects the privacy of everyone who interacts with our
